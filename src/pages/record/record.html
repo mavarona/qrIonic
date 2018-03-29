@@ -2,12 +2,23 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>record</ion-title>
+    <ion-title>Records</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+  <ion-list>
+    <button ion-item
+            *ngFor="let record of records; let i = index"
+            (click)="openScan(i)">
+        {{ record.info }}
+        <p>
+          {{ record.type }}
+        </p>
+    </button>
+  </ion-list>
 
 </ion-content>

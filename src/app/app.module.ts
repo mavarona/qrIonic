@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import { HomePage,
          TabsPage,
@@ -13,6 +14,7 @@ import { HomePage,
        } from '../pages/inde.pages';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner'
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { RecordProvider } from '../providers/record/record';
 
@@ -26,6 +28,7 @@ import { RecordProvider } from '../providers/record/record';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -41,6 +44,7 @@ import { RecordProvider } from '../providers/record/record';
     SplashScreen,
     BarcodeScanner,
     RecordProvider,
+    InAppBrowser,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RecordProvider
   ]

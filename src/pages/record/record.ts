@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 
-/**
- * Generated class for the RecordPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { RecordProvider } from '../../providers/record/record';
+import { ScanData } from '../../models/scan-data.model';
 
 @IonicPage()
 @Component({
@@ -15,11 +11,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RecordPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  records: Array<ScanData> = new Array<ScanData>();
+
+  constructor( private _recordProvider: RecordProvider ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RecordPage');
+    this.records = this._recordProvider.loadRecords();
+  }
+
+  openScan ( index: number ) {
+
+    this._recordProvider.openScan( index );
+
   }
 
 }
