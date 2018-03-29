@@ -13,6 +13,8 @@ export class ScanData {
       this.type = 'http';
     } else if ( text.startsWith('geo') ) {
       this.type = 'map';
+    } else if ( text.startsWith('BEGIN:VCARD') ) {
+      this.type = 'contact';
     }
 
   }

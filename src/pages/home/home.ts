@@ -24,7 +24,17 @@ export class HomePage {
 
     if ( !this.platform.is ('cordova') ){
       //this._recordProvider.addRecord('http://google.com');
-      this._recordProvider.addRecord('geo:40.5034217,-3.704353900000001');
+      // this._recordProvider.addRecord('geo:40.5034217,-3.704353900000001');
+      this._recordProvider.addRecord( `BEGIN:VCARD
+VERSION:2.1
+N:Kent;Clark
+FN:Clark Kent
+ORG:
+TEL;HOME;VOICE:12345
+TEL;TYPE=cell:67890
+ADR;TYPE=work:;;;
+EMAIL:clark@superman.com
+END:VCARD` );
       return;
     }
 
