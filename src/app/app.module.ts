@@ -15,6 +15,7 @@ import { HomePage,
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner'
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { AgmCoreModule } from '@agm/core';
 
 import { RecordProvider } from '../providers/record/record';
 
@@ -29,7 +30,10 @@ import { RecordProvider } from '../providers/record/record';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD90k4vMtwLujqZYYfjG0BpzGBWwPt3AcY'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

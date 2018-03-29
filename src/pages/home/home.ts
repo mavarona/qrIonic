@@ -23,7 +23,8 @@ export class HomePage {
   scan () {
 
     if ( !this.platform.is ('cordova') ){
-      this._recordProvider.addRecord('http://google.com');
+      //this._recordProvider.addRecord('http://google.com');
+      this._recordProvider.addRecord('geo:40.5034217,-3.704353900000001');
       return;
     }
 

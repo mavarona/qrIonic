@@ -3,13 +3,17 @@ import { Injectable } from '@angular/core';
 import { ScanData } from '../../models/scan-data.model';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+import { ModalController } from 'ionic-angular';
+import { MapPage } from '../../pages/map/map';
+
 @Injectable()
 export class RecordProvider {
 
   private _records: Array<ScanData> = new  Array<ScanData>();
 
   constructor(public http: HttpClient,
-              private _iab: InAppBrowser) {
+              private _iab: InAppBrowser,
+              private _modalCrtl: ModalController) {
 
   }
 
@@ -27,7 +31,6 @@ export class RecordProvider {
 
   }
 
-
   openScan ( index: number ) {
 
     let scanData = this._records[index];
@@ -36,6 +39,10 @@ export class RecordProvider {
 
       case "http":
         this._iab.create( scanData.info, '_system' );
+        break;
+      case "map":
+        this._modalCrtl.create( MapPage, { coords: scanData.info } )
+                       .present();
         break;
 
       default:
