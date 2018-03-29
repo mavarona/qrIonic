@@ -17,7 +17,7 @@ export class MapPage {
 
     let coorsArray = this.navParams.get('coords').split(',');
 
-    this.lat = Number( coorsArray[0].replace("geo","") );
+    this.lat = Number( coorsArray[0].replace("geo:","") );
     this.lng = Number( coorsArray[1] );
 
   }
