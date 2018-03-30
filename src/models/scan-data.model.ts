@@ -15,6 +15,8 @@ export class ScanData {
       this.type = 'map';
     } else if ( text.startsWith('BEGIN:VCARD') ) {
       this.type = 'contact';
+    } else if ( text.startsWith('MATMSG') ) {
+      this.type = 'email';
     }
 
   }

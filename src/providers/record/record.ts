@@ -6,6 +6,7 @@ import { Contacts,
          Contact,
          ContactField,
          ContactName } from '@ionic-native/contacts';
+import { EmailComposer } from '@ionic-native/email-composer';
 
 import { ModalController,
          Platform,
@@ -22,7 +23,8 @@ export class RecordProvider {
               private _modalCrtl: ModalController,
               private _contacts: Contacts,
               private _platform: Platform,
-              private _toastCtrl: ToastController) {
+              private _toastCtrl: ToastController,
+              private _email: EmailComposer) {
 
   }
 
@@ -55,6 +57,24 @@ export class RecordProvider {
         break;
       case "contact":
         this.createContact( scanData.info );
+        break;
+      case "email":
+        let dataEmail: Array<string> = new Array<string>();
+        dataEmail = scanData.info.split(';');
+        console.log(dataEmail[0].replace('MATMSG:TO:',''));
+        console.log(dataEmail[1].replace('SUB:',''));
+        console.log(dataEmail[2].replace('BODY:',''));
+
+        let email = {
+          to: dataEmail[0].replace('MATMSG:TO:',''),
+          subject: dataEmail[1].replace('SUB:',''),
+          body: dataEmail[2].replace('BODY:',''),
+          isHtml: true
+        };
+
+        // Send a text message using default options
+        this._email.open(email);
+
         break;
 
       default:

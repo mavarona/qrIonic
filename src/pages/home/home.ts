@@ -25,24 +25,22 @@ export class HomePage {
     if ( !this.platform.is ('cordova') ){
       //this._recordProvider.addRecord('http://google.com');
       // this._recordProvider.addRecord('geo:40.5034217,-3.704353900000001');
-      this._recordProvider.addRecord( `BEGIN:VCARD
-VERSION:2.1
-N:Kent;Clark
-FN:Clark Kent
-ORG:
-TEL;HOME;VOICE:12345
-TEL;TYPE=cell:67890
-ADR;TYPE=work:;;;
-EMAIL:clark@superman.com
-END:VCARD` );
+//       this._recordProvider.addRecord( `BEGIN:VCARD
+// VERSION:2.1
+// N:Kent;Clark
+// FN:Clark Kent
+// ORG:
+// TEL;HOME;VOICE:12345
+// TEL;TYPE=cell:67890
+// ADR;TYPE=work:;;;
+// EMAIL:clark@superman.com
+// END:VCARD` );
+      this._recordProvider.addRecord('MATMSG:TO:info@toptrail.es;SUB:Test subject;BODY:ejemplo de mensaje;;');
       return;
     }
 
     this.barcodeScanner.scan()
         .then( (barCodeData) => {
-          console.log("result", barCodeData.text);
-          console.log("format", barCodeData.format);
-          console.log("cancelled", barCodeData.cancelled);
 
           if ( !barCodeData.cancelled && barCodeData.text !== null ) {
             this._recordProvider.addRecord ( barCodeData.text );

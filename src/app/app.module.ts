@@ -17,6 +17,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner'
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AgmCoreModule } from '@agm/core';
 import { Contacts } from '@ionic-native/contacts';
+import { EmailComposer } from '@ionic-native/email-composer';
 
 import { RecordProvider } from '../providers/record/record';
 
@@ -51,6 +52,7 @@ import { RecordProvider } from '../providers/record/record';
     RecordProvider,
     InAppBrowser,
     Contacts,
+    EmailComposer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RecordProvider
   ]
