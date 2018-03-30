@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -21,6 +22,8 @@ import { EmailComposer } from '@ionic-native/email-composer';
 
 import { RecordProvider } from '../providers/record/record';
 
+import { keyMaps } from '../../config/config';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -34,7 +37,7 @@ import { RecordProvider } from '../providers/record/record';
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyD90k4vMtwLujqZYYfjG0BpzGBWwPt3AcY'
+      apiKey: keyMaps
     })
   ],
   bootstrap: [IonicApp],

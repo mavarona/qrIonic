@@ -61,9 +61,6 @@ export class RecordProvider {
       case "email":
         let dataEmail: Array<string> = new Array<string>();
         dataEmail = scanData.info.split(';');
-        console.log(dataEmail[0].replace('MATMSG:TO:',''));
-        console.log(dataEmail[1].replace('SUB:',''));
-        console.log(dataEmail[2].replace('BODY:',''));
 
         let email = {
           to: dataEmail[0].replace('MATMSG:TO:',''),

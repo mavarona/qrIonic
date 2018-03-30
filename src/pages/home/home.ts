@@ -35,7 +35,7 @@ export class HomePage {
 // ADR;TYPE=work:;;;
 // EMAIL:clark@superman.com
 // END:VCARD` );
-      this._recordProvider.addRecord('MATMSG:TO:info@toptrail.es;SUB:Test subject;BODY:ejemplo de mensaje;;');
+      this._recordProvider.addRecord('MATMSG:TO:info@test.es;SUB:Test subject;BODY:ejemplo de mensaje;;');
       return;
     }
 
